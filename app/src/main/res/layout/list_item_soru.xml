@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_id"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/gradient"
     android:orientation="vertical">
 
@@ -12,8 +12,8 @@
         android:id="@+id/soru_sirasi_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:text="SORU 1"
         android:textColor="@android:color/white"
         android:textSize="16sp"
@@ -23,62 +23,113 @@
         android:id="@+id/soru_baslik_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/secenek_sekli"
         android:ems="10"
+        android:minHeight="120dp"
         android:paddingLeft="8dp"
         android:paddingTop="16dp"
         android:paddingRight="8dp"
         android:paddingBottom="16dp"
         android:text="sadsadsadasdasdasdasda sdasda sadsdasd sadsadsadasdasdasdasda sdasda sadsdasd sadsadsadasdasdasdasda sdasda sadsdasd sadsadsadasdasdasdasda sdasda sadsdasd"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear1"
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="25dp"
+    android:background="@drawable/secenek_sekli"
+    >
 
     <TextView
         android:id="@+id/secenek_1_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:paddingLeft="8dp"
         android:paddingTop="16dp"
         android:paddingRight="8dp"
         android:paddingBottom="16dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         tools:text="sadsadsadasdasdasdasda sdasda sadsdasd" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear2"
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="25dp"
+    android:background="@drawable/secenek_sekli"
+    >
 
     <TextView
         android:id="@+id/secenek_2_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         android:paddingLeft="8dp"
         android:paddingTop="16dp"
         android:paddingRight="8dp"
         android:paddingBottom="16dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         tools:text="sadsadsadasdasdasdasda sdasda sadsdasd" />
-
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear3"
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="25dp"
+    android:background="@drawable/secenek_sekli"
+    >
     <TextView
         android:id="@+id/secenek_3_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         android:paddingLeft="8dp"
         android:paddingTop="16dp"
         android:paddingRight="8dp"
         android:paddingBottom="16dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         tools:text="sadsadsadasdasdasdasda sdasda sadsdasd" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linear4"
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="25dp"
+    android:background="@drawable/secenek_sekli"
+    >
 
     <TextView
         android:id="@+id/secenek_4_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         android:paddingLeft="8dp"
         android:paddingTop="16dp"
         android:paddingRight="8dp"
         android:paddingBottom="16dp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         tools:text="sadsadsadasdasdasdasda sdasda sadsdasd" />
+</LinearLayout>
 
 </LinearLayout>

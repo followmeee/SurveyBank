@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static Retrofit retrofit=null;
-    private static String Base_Url= "https://anketwebapiv220200110015503.azurewebsites.net/";
+    private static String Base_Url= "http://192.168.1.196:8081/";
     public static Retrofit getClient(){
         if(retrofit== null){
             retrofit = new Retrofit.Builder()

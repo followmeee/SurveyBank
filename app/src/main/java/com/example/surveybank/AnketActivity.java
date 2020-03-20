@@ -22,7 +22,7 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
     AnketAdapter anketAdapter;
     public static final String KEY_EXTRA = "BUNDLE_ANKETOR_ID_KEY";
     String TAG = "akis";
- public ProgressDialog progressDialog;
+    public ProgressDialog progressDialog;
 
 
     @Override
@@ -35,8 +35,8 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
         // todo İnterface 7.aşama
         anketAdapter.setClickListener(this);
         recyclerView.setAdapter(anketAdapter); /**recylerviewe adapterini tanıttım.*/
-        progressDialog =new ProgressDialog(this);
-        progressDialog.setMessage("Giriş yapıyor :) ");
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Anketler yükleniyor:) ");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setIndeterminate(true);
         progressDialog.show();
@@ -58,8 +58,10 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
             @Override
             public void onResponse(Call<List<Anket>> call, Response<List<Anket>> response) {
                 progressDialog.hide();
+                if (response.body() != null) {
 
-                Log.i(TAG, "onResponse:listenin sayısı " + response.body().size());
+                    Log.i(TAG, "onResponse:listenin sayısı " + response.body().size());
+                }
                 if (response.isSuccessful()) {
                     anketAdapter.setAnket_listesi(response.body());
                     anketAdapter.notifyDataSetChanged();
@@ -76,13 +78,19 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
         });
 
     }
+    public void showDialog(Anket anket) {
 
+        DenekKayitFragment denekKayitFragment=new DenekKayitFragment();
+        denekKayitFragment.setAnket(anket);
+        denekKayitFragment.show(getSupportFragmentManager(), "DenekKayitFragment");
+
+
+    }
 
     // todo İnterface 6.aşama
     @Override
     public void onclickItem(Anket anket) {
-        Intent ıntent =new Intent(AnketActivity.this,SorularActivity.class);
-        ıntent.putExtra(SorularActivity.KEY_EXTRA, anket);
-        startActivity(ıntent);
+//
+        showDialog(anket);
     }
 }

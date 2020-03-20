@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#2A3C58</color>
+    <color name="colorPrimaryDark">#2A3c58</color>
     <color name="colorAccent">#4E2937</color>
     <color name="mor">#49081E</color>
     <color name="siyah">#000000</color>
     <color name="gri">#9E9191</color>
+    <color name="beyaz">#FFFFFF</color>
+
 </resources>

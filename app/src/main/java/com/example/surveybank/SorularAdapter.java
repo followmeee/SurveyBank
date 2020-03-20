@@ -1,5 +1,6 @@
 package com.example.surveybank;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,15 @@ import java.util.List;
 
 public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder> {
     List<Sorular> soru_listesi;
+    Activity activiy;
     // todo İnterface 2.aşama
     ClickListener clickListener;
 
     public void setSoru_listesi(List<Sorular> soru_listesi) {
         this.soru_listesi = soru_listesi;
+    }
+    public void setcontext(SorularActivity sorularActivity) {
+        this.activiy = sorularActivity;
     }
 
     // todo İnterface 3.aşama
@@ -37,30 +42,32 @@ public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyHolder myHolder, final int position) {
+    public void onBindViewHolder(@NonNull final MyHolder myHolder, final int position) {
+
+//anket ve anketör ıd ve denek id buraya getirilecek
 
         myHolder.soru_sirasi.setText("SORU "+soru_listesi.get(position).getSoruid().toString());
         myHolder.soru_baslik.setText(soru_listesi.get(position).getSoru());
-       int secenek_listesi_sayisi =soru_listesi.get(position).getSecenek().size();
-        myHolder.secenek_1.setVisibility(View.GONE);
-        myHolder.secenek_2.setVisibility(View.GONE);
-        myHolder.secenek_3.setVisibility(View.GONE);
-        myHolder.secenek_4.setVisibility(View.GONE);
+       final int secenek_listesi_sayisi =soru_listesi.get(position).getSecenek().size();
+        myHolder.linear1.setVisibility(View.GONE);
+        myHolder.linear2.setVisibility(View.GONE);
+        myHolder.linear3.setVisibility(View.GONE);
+        myHolder.linear4.setVisibility(View.GONE);
         if (secenek_listesi_sayisi > 0 && soru_listesi.get(position).getSecenek().get(0) != null) {
             myHolder.secenek_1.setText(soru_listesi.get(position).getSecenek().get(0));
-            myHolder.secenek_1.setVisibility(View.VISIBLE);
+            myHolder.linear1.setVisibility(View.VISIBLE);
         }
         if (secenek_listesi_sayisi > 1 && soru_listesi.get(position).getSecenek().get(1) != null) {
             myHolder.secenek_2.setText(soru_listesi.get(position).getSecenek().get(1));
-            myHolder.secenek_2.setVisibility(View.VISIBLE);
+            myHolder.linear2.setVisibility(View.VISIBLE);
         }
         if (secenek_listesi_sayisi > 2 && soru_listesi.get(position).getSecenek().get(2) != null) {
             myHolder.secenek_3.setText(soru_listesi.get(position).getSecenek().get(2));
-            myHolder.secenek_3.setVisibility(View.VISIBLE);
+            myHolder.linear3.setVisibility(View.VISIBLE);
         }
         if (secenek_listesi_sayisi > 3 && soru_listesi.get(position).getSecenek().get(3) != null) {
             myHolder.secenek_4.setText(soru_listesi.get(position).getSecenek().get(3));
-            myHolder.secenek_4.setVisibility(View.VISIBLE);
+            myHolder.linear4.setVisibility(View.VISIBLE);
         }
 
 
@@ -73,7 +80,35 @@ public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder
 
             }
         });
+        myHolder.linear1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myHolder.linear1.setBackgroundResource(R.drawable.secenek_sekli_tiklaninca);
 
+            }
+        });
+        myHolder.linear2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myHolder.linear2.setBackground(activiy.getDrawable(R.drawable.secenek_sekli_tiklaninca));
+
+
+            }
+        });
+        myHolder.linear3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myHolder.linear3.setBackground(activiy.getDrawable(R.drawable.secenek_sekli_tiklaninca));
+
+            }
+        });
+        myHolder.linear4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myHolder.linear4.setBackground(activiy.getDrawable(R.drawable.secenek_sekli_tiklaninca));
+
+            }
+        });
 
     }
 
@@ -86,6 +121,8 @@ public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder
 
     }
 
+
+
     public class MyHolder extends RecyclerView.ViewHolder {
         public TextView soru_sirasi;
         public TextView soru_baslik;
@@ -94,6 +131,10 @@ public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder
         public TextView secenek_3;
         public TextView secenek_4;
         public LinearLayout linearLayout;
+        public LinearLayout linear1;
+        public LinearLayout linear2;
+        public LinearLayout linear3;
+        public LinearLayout linear4;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -104,6 +145,10 @@ public class SorularAdapter extends RecyclerView.Adapter<SorularAdapter.MyHolder
             secenek_3 = itemView.findViewById(R.id.secenek_3_tv);
             secenek_4 = itemView.findViewById(R.id.secenek_4_tv);
             linearLayout = itemView.findViewById(R.id.root_id);
+            linear1 = itemView.findViewById(R.id.linear1);
+            linear2 = itemView.findViewById(R.id.linear2);
+            linear3 = itemView.findViewById(R.id.linear3);
+            linear4 = itemView.findViewById(R.id.linear4);
 
         }
     }

@@ -1,6 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="DENEK KAYDI"
+            android:textColor="@color/beyaz"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/isim_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:hint="İSİM"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/soyisim_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="SOYİSİM"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/dtarihi_et"
+                    style="@android:style/Widget.DatePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:ems="10"
+                    android:inputType="datetime"
+                    android:hint="DOĞUM TARİHİ"
+                    android:layerType="none"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:entries="@array/gender_arrays"
+                    android:prompt="@string/gender_prompt" />
+                <EditText
+                    android:id="@+id/gsm_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="CEP TELEFONU"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/meslek_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="MESLEK"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/mail_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="EMAİL"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/egitim_durumu_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="EĞİTİM"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/medeni_hali_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="MEDENİ HALİ"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/bolge_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="BÖLGE"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+                <EditText
+                    android:id="@+id/sehir_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:hint="ŞEHİR"
+                    android:textColor="@color/beyaz"
+                    android:textColorHint="@color/beyaz" />
+
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/kayit_ol"
+            android:text="KAYIT OL"
+
+            >
+
+        </Button>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

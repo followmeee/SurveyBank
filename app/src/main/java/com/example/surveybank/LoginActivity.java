@@ -2,6 +2,7 @@ package com.example.surveybank;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -90,14 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-      //*  showDialog();
     }
 
-    public void showDialog() {
 
-        DenekKayitFragment denekKayitFragment=new DenekKayitFragment();
-        denekKayitFragment.show(getSupportFragmentManager(), "DenekKayitFragment");
-
-
-    }
 }
