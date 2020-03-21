@@ -22,7 +22,7 @@ public interface RestInterface {
     );
 
     @POST("api/Denek")
-    Call<ResponseBody> PostDenekKaydi(
+    Call<Integer> PostDenekKaydi(
             @Query("Ad") String ad ,
             @Query("Soyad") String soyad ,
             @Query("Dogum_Tarihi") String  dogum_Tarihi ,
@@ -35,6 +35,16 @@ public interface RestInterface {
             @Query("Bolge") String bolge,
             @Query("Sehir") String sehir
     );
+    @POST("api/Anketler")
+    Call<ResponseBody> PostCevap(
+            @Query("Anket_ID") int anket_id,
+            @Query("Anketor_ID") int anketor_id,
+            @Query("Soru_ID") int soru_id,
+            @Query("Cevap_Secenek_ID") int cevap_secenek_id,
+            @Query("Denek_ID") int denek_id
+
+    );
+
 
 }
 

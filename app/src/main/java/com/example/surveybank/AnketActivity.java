@@ -24,6 +24,8 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
     String TAG = "akis";
     public ProgressDialog progressDialog;
 
+   public int anketör_idd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,6 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
         progressDialog.show();
 
 
-        int anketör_idd;
 
         if (getIntent().hasExtra(KEY_EXTRA)) {
             anketör_idd = getIntent().getIntExtra(KEY_EXTRA, -1);
@@ -82,6 +83,7 @@ public class AnketActivity extends AppCompatActivity implements AnketAdapter.Cli
 
         DenekKayitFragment denekKayitFragment=new DenekKayitFragment();
         denekKayitFragment.setAnket(anket);
+        denekKayitFragment.setAnketorId(anketör_idd);
         denekKayitFragment.show(getSupportFragmentManager(), "DenekKayitFragment");
 
 

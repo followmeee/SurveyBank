@@ -12,6 +12,8 @@ import android.os.Bundle;
 
 public class SorularActivity extends AppCompatActivity {
     public static final String KEY_EXTRA = "BUNDLE_ANKET_KEY";
+    public static final String DENEK_KEY_EXTRA = "BUNDLE_DENEK_KEY";
+    public static final String ANKETOR_ID_EXTRA = "BUNDLE_ANKETOR_KEY";
     RecyclerView recyclerView;
     SorularAdapter sorularAdapter;
 
@@ -21,6 +23,8 @@ public class SorularActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sorular);
         Intent i = getIntent();
         Anket anket = (Anket) i.getSerializableExtra(KEY_EXTRA);
+        Integer denek_id=i.getIntExtra(DENEK_KEY_EXTRA,-1);
+        Integer anketor_id=i.getIntExtra(ANKETOR_ID_EXTRA,-1);
         recyclerView=findViewById(R.id.soru_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         SnapHelper snapHelper = new PagerSnapHelper();
@@ -28,11 +32,12 @@ public class SorularActivity extends AppCompatActivity {
       sorularAdapter =new SorularAdapter();
       sorularAdapter.setSoru_listesi(anket.getSorular());
       sorularAdapter.setcontext(this);
+      sorularAdapter.setDenek_id(denek_id);
+      sorularAdapter.setAnketor_id(anketor_id);
+      sorularAdapter.setAnket_id(anket.getID());
 
       recyclerView.setAdapter(sorularAdapter);
 
-      Anket anket1 = new Anket();
-      anket1.setKonu("konu");
 
 
     }

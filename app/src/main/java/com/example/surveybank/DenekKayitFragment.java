@@ -49,12 +49,16 @@ public class DenekKayitFragment extends DialogFragment {
     String bolgee;
     String sehirr;
     Anket anket;
-
+    int anketor_idd;
 
     public void setAnket(Anket anket) {
+
         this.anket = anket;
     }
 
+    public void setAnketorId(int anketör_idd) {
+        this.anketor_idd=anketör_idd;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -90,45 +94,52 @@ public class DenekKayitFragment extends DialogFragment {
                 medeni_hall = medeni_hal.getText().toString();
                 bolgee = bölge.getText().toString();
                 sehirr = sehir.getText().toString();
-                RestInterface restInterface =
-                        ApiClient.getClient().create(RestInterface.class); /**interfaceyle retrofiti tanıstırdım**/
-                Call<ResponseBody> call = restInterface.PostDenekKaydi(
-                        isimm,
-                        soyisimm,
-                        dogum_tarihii,
-                        cinsiyett,
-                        cep_telefonuu,
-                        meslekk,
-                        egitim_durumuu,
-                        emaill,
-                        medeni_hall,
-                        bolgee,
-                        sehirr
-                );
-                call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
-                        progress.hide();
-                        if (response.isSuccessful()) {
-                            Intent ıntent = new Intent(getActivity(), SorularActivity.class);
-                            ıntent.putExtra(SorularActivity.KEY_EXTRA, anket);
-                            startActivity(ıntent);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        progress.hide();
-
-                    }
-                });
-
+                progress.hide();
+                Intent ıntent = new Intent(getActivity(), SorularActivity.class);
+                ıntent.putExtra(SorularActivity.KEY_EXTRA, anket);
+                ıntent.putExtra(SorularActivity.DENEK_KEY_EXTRA, 1015);
+                ıntent.putExtra(SorularActivity.ANKETOR_ID_EXTRA, anketor_idd);
+                startActivity(ıntent);
+//
+//                RestInterface restInterface =
+//                        ApiClient.getClient().create(RestInterface.class); /**interfaceyle retrofiti tanıstırdım**/
+//                Call<Integer> call = restInterface.PostDenekKaydi(
+//                        isimm,
+//                        soyisimm,
+//                        dogum_tarihii,
+//                        cinsiyett,
+//                        cep_telefonuu,
+//                        meslekk,
+//                        egitim_durumuu,
+//                        emaill,
+//                        medeni_hall,
+//                        bolgee,
+//                        sehirr
+//                );
+//                call.enqueue(new Callback<Integer>() {
+//                    @Override
+//                    public void onResponse(Call<Integer> call, retrofit2.Response<Integer> response) {
+//                        progress.hide();
+//                        if (response.isSuccessful()) {
+//                            Intent ıntent = new Intent(getActivity(), SorularActivity.class);
+//                            ıntent.putExtra(SorularActivity.KEY_EXTRA, anket);
+//                            ıntent.putExtra(SorularActivity.DENEK_KEY_EXTRA, response.body());
+//                            ıntent.putExtra(SorularActivity.ANKETOR_ID_EXTRA, anketor_idd);
+//                            startActivity(ıntent);
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<Integer> call, Throwable t) {
+//                        progress.hide();
+//
+//                    }
+//                });
+//
             }
-
-
         });
-
 
         return view;
     }
+
 }

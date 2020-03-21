@@ -36,6 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         giris = findViewById(R.id.giris_btn);
         restInterface = ApiClient.getClient().create(RestInterface.class);
         final ProgressDialog progress = new ProgressDialog(this);
+
+        // TODO production da kaldır temp data
+        kullanici.setText("kadir");
+        sifre.setText("123");
         giris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
