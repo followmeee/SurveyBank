@@ -100,7 +100,7 @@ public class DenekKayitFragment extends DialogFragment {
                 ıntent.putExtra(SorularActivity.DENEK_KEY_EXTRA, 1015);
                 ıntent.putExtra(SorularActivity.ANKETOR_ID_EXTRA, anketor_idd);
                 startActivity(ıntent);
-//
+
 //                RestInterface restInterface =
 //                        ApiClient.getClient().create(RestInterface.class); /**interfaceyle retrofiti tanıstırdım**/
 //                Call<Integer> call = restInterface.PostDenekKaydi(
