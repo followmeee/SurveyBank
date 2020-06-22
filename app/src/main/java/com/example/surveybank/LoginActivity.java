@@ -51,10 +51,13 @@ public class LoginActivity extends AppCompatActivity {
                 final String sifresi = sifre.getText().toString();
                 if (kullanici_adi.equals("")) {
                     Toast.makeText(LoginActivity.this, "kullanıcı adı bos bırakılamaz", Toast.LENGTH_SHORT).show();
+                    progress.hide();
                     return;
+
                 }
                 if (sifresi.equals("")) {
                     Toast.makeText(LoginActivity.this, "sifre bos bırakılamaz", Toast.LENGTH_SHORT).show();
+                    progress.hide();
                     return;
                 }
                 Call<List<Anketör>> call = restInterface.GetAnketörListesi();
